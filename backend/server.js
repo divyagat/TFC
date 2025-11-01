@@ -28,7 +28,7 @@ app.post("/api/send-email", async (req, res) => {
   // ✅ Only send mail to admin (not user)
   const adminMail = {
     from: process.env.EMAIL_USER,
-    to: "pushkargharate3011@gmail.com", // fixed admin email
+    to: "traditionalfoodcompany01@gmail.com", // fixed admin email
     subject: "📩 New Franchise Application Received",
     html: `
       <h3>New franchise application details:</h3>
@@ -63,7 +63,7 @@ app.post("/api/contact", async (req, res) => {
   // ✅ Only send mail to admin
   const adminMail = {
     from: process.env.EMAIL_USER,
-    to: "pushkargharate3011@gmail.com", // fixed admin email
+    to: "traditionalfoodcompany01@gmail.com", // fixed admin email
     subject: "📩 New Contact Form Submission",
     html: `
       <h3>A new contact form was submitted:</h3>
