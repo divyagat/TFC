@@ -11,12 +11,17 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-// ✅ Nodemailer transporter (use Gmail + App Password)
+// ✅ Brevo (Sendinblue) SMTP transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false, // STARTTLS
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.EMAIL_USER, // your Brevo SMTP login (not Gmail)
+    pass: process.env.EMAIL_PASS, // your SMTP key
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
 });
 
@@ -27,8 +32,8 @@ app.post("/api/send-email", async (req, res) => {
   const { name, email, contact, area, address, message, budget } = req.body;
 
   const adminMail = {
-    from: process.env.EMAIL_USER,
-    to: "traditionalfoodcompany01@gmail.com", // Admin email
+    from: `"Traditional Food Company" <${process.env.EMAIL_USER}>`,
+    to: "traditionalfoodcompany01@gmail.com",
     subject: "📩 New Franchise Application Received",
     html: `
       <h3>New Franchise Application Details:</h3>
@@ -61,8 +66,8 @@ app.post("/api/contact", async (req, res) => {
   const { user_name, user_email, user_phone, user_address, reason } = req.body;
 
   const adminMail = {
-    from: process.env.EMAIL_USER,
-    to: "traditionalfoodcompany01@gmail.com", // Admin email
+    from: `"Traditional Food Company" <${process.env.EMAIL_USER}>`,
+    to: "traditionalfoodcompany01@gmail.com",
     subject: "📩 New Contact Form Submission",
     html: `
       <h3>A new contact form was submitted:</h3>
