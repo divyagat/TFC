@@ -2,40 +2,21 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
-import path from "path";
-import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Fix for ES modules path
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// ✅ CORS setup – allow both local and production frontend
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173", // your local frontend (Vite/React)
-      "https://your-frontend-domain.com", // your deployed frontend (optional)
-    ],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
-
+// ✅ Enable CORS and JSON body parsing
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-// ✅ Serve static frontend files (if any)
-app.use(express.static(path.join(__dirname, "public")));
-
-// ✅ Nodemailer transporter setup (Gmail + App Password)
+// ✅ Nodemailer transporter (use Gmail + App Password)
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER, // Your admin email
-    pass: process.env.EMAIL_PASS, // App password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -47,10 +28,10 @@ app.post("/api/send-email", async (req, res) => {
 
   const adminMail = {
     from: process.env.EMAIL_USER,
-    to: process.env.ADMIN_EMAIL, // dynamic admin mail
+    to: "traditionalfoodcompany01@gmail.com", // Admin email
     subject: "📩 New Franchise Application Received",
     html: `
-      <h3>New franchise application details:</h3>
+      <h3>New Franchise Application Details:</h3>
       <ul>
         <li><strong>Name:</strong> ${name || "N/A"}</li>
         <li><strong>Email:</strong> ${email || "N/A"}</li>
@@ -65,7 +46,8 @@ app.post("/api/send-email", async (req, res) => {
 
   try {
     await transporter.sendMail(adminMail);
-    res.status(200).json({ message: "✅ Franchise mail sent successfully" });
+    console.log("✅ Franchise mail sent to admin");
+    res.status(200).json({ message: "Franchise mail sent successfully" });
   } catch (error) {
     console.error("❌ Franchise Mail Error:", error.message);
     res.status(500).json({ message: "Error sending mail to admin" });
@@ -80,7 +62,7 @@ app.post("/api/contact", async (req, res) => {
 
   const adminMail = {
     from: process.env.EMAIL_USER,
-    to: process.env.ADMIN_EMAIL, // dynamic admin mail
+    to: "traditionalfoodcompany01@gmail.com", // Admin email
     subject: "📩 New Contact Form Submission",
     html: `
       <h3>A new contact form was submitted:</h3>
@@ -96,19 +78,24 @@ app.post("/api/contact", async (req, res) => {
 
   try {
     await transporter.sendMail(adminMail);
-    res.status(200).json({ message: "✅ Contact mail sent successfully" });
+    console.log("✅ Contact mail sent to admin");
+    res.status(200).json({ message: "Contact mail sent successfully" });
   } catch (error) {
     console.error("❌ Contact Mail Error:", error.message);
     res.status(500).json({ message: "Error sending mail to admin" });
   }
 });
 
-// ✅ Default route (for frontend deployment)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+/* =============================
+   Default Route (For Render Health Check)
+============================= */
+app.get("/", (req, res) => {
+  res.send("✅ Traditional Food Company Backend is Running Successfully!");
 });
 
-// 🚀 Start Server
+/* =============================
+   Start Server
+============================= */
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
