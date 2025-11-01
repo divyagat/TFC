@@ -115,11 +115,11 @@ const WhyTfc = () => {
 
 
       {/* Decorative Floating Images */}
-      <img src="/assets/img/icons/20.png" alt="leaf1" className="floating-deco" style={{ top: "35%", left: "12%", width: "90px", animationDelay: "0s" }} />
+      <img src="/assets/img/icons/20.png" alt="leaf1" className="floating-deco" style={{ top: "18%", left: "12%", width: "90px", animationDelay: "0s" }} />
       <img src="/assets/img/icons/1.png" alt="spice1" className="floating-deco" style={{ top: "30%", right: "5%", width: "50px", animationDelay: "1s" }} />
-      <img src="/assets/img/icons/21.png" alt="leaf2" className="floating-deco" style={{ bottom: "40%", left: "13%", width: "70px", animationDelay: "0.5s" }} />
-      <img src="/Animatedcoriander/fresh-coriander-leaves-white-background__1_-removebg-preview.png" alt="leaf2" className="floating-deco" style={{ bottom: "18%", left: "35%", width: "180px", animationDelay: "0.5s" }} />
-      <img src="/assets/img/Homeimg/1785dc3f-a5e4-43c6-b65b-5ce9ee247bfd.jpg" alt="spice2" className="floating-deco" style={{ bottom: "55%", right: "53%", width: "90px", animationDelay: "1.5s" }} />
+      <img src="/assets/img/icons/21.png" alt="leaf2" className="floating-deco" style={{ bottom: "33%", left: "10%", width: "70px", animationDelay: "0.5s" }} />
+      <img src="/Animatedcoriander/fresh-coriander-leaves-white-background__1_-removebg-preview.png" alt="leaf2" className="floating-deco" style={{ bottom: "27%", left: "35%", width: "180px", animationDelay: "0.5s" }} />
+      <img src="/assets/img/Homeimg/1785dc3f-a5e4-43c6-b65b-5ce9ee247bfd.jpg" alt="spice2" className="floating-deco" style={{ bottom: "68%", right: "53%", width: "90px", animationDelay: "1.5s" }} />
 
       <div className="container-fluid px-3 px-md-5 margin-bottom-0">
         {/* Heading */}
@@ -172,7 +172,7 @@ const WhyTfc = () => {
           >
             <div style={{ position: "relative", width: "100%", maxWidth: "550px", aspectRatio: "1/1" }}>
               <img
-                src="/NewImg/Handi.png"
+                src="/assets/img/Whytfc/Veg handi_311025.png"
                 alt="Front Thali"
                 style={{
                   position: "relative",

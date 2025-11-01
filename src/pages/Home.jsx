@@ -247,7 +247,7 @@ function Home() {
         },
         {
             url: "https://www.instagram.com/reel/DEr-f5ot3GP/?igsh=MWVybnN1eGp5OGVweQ==",
-            cover: "/ReviewVideoCoverimg/t3.jpg",
+            cover: "/ReviewVideoCoverimg/Matanhandi.jpg",
         },
         {
             url: "https://www.instagram.com/reel/DCWkpx3t7Fl/?igsh=anJ3NzQ1eWtxdTVm",
@@ -1510,7 +1510,7 @@ function Home() {
                                 <div
                                     className="gallery-img-1"
                                     style={{
-                                        backgroundImage: "url('/assets/img/OurAmbience/ambience 5_071025_01 (2).png')",
+                                        backgroundImage: "url('/assets/img/OurSpecialitiesimg/ambience _311025_03.jpg')",
                                         borderRadius: "8px",
                                         overflow: "hidden",
                                         position: "relative",

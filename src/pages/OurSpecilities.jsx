@@ -143,7 +143,7 @@ const OurSpecialities = () => {
                             <div
                                 className="gallery-img-2 d-flex justify-content-end"
                                 style={{
-                                    backgroundImage: "url('/assets/img/OurSpecialitiesimg/Authentic indian seating  02.jpg')",
+                                    backgroundImage: "url('/assets/img/OurSpecialitiesimg/WhatsApp Image 2025-10-30 at 6.45.13 PM.jpeg')",
                                     borderRadius: "8px",
                                 }}
                             >
@@ -220,7 +220,7 @@ const OurSpecialities = () => {
                             <div
                                 className="gallery-img-1 gallery-img-11 gallery-img-01"
                                 style={{
-                                    backgroundImage: "url('/assets/img/Whytfc/maha. thali .jpg')",
+                                    backgroundImage: "url('/assets/img/OurSpecialitiesimg/WhatsApp Image 2025-10-30 at 7.45.32 PM.jpeg')",
                                     borderRadius: "8px",
                                 }}
                             >
